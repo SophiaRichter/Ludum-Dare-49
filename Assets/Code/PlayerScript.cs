@@ -10,6 +10,7 @@ public class PlayerScript : MonoBehaviour
     bool isWalking = false;
     bool isWalkingDown = false;
     bool isWalkingUp = false;
+    int lastAnimation = 0;
     
     float velocity = 2f;
 
@@ -84,25 +85,30 @@ public class PlayerScript : MonoBehaviour
         
         if (isIdle)
         {
-            anim.Play("Blob_Idle");
+            if (lastAnimation == 0) anim.Play("Blob_Idle");
+            if (lastAnimation == 1) anim.Play("Blob_IdleDown");
+            if (lastAnimation == 2) anim.Play("Blob_IdleUp");
             return;
         }
 
         if (isWalking)
         {
             anim.Play("Blob_Walking");
+            lastAnimation = 0;
             return;
         }
 
         if (isWalkingDown)
         {
             anim.Play("Blob_WalkingDown");
+            lastAnimation = 1;
             return;
         }
 
         if (isWalkingUp)
         {
             anim.Play("Blob_WalkingUp");
+            lastAnimation = 2;
             return;
         }
     }
@@ -133,8 +139,9 @@ public class PlayerScript : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Collider")
+        if (other.gameObject.tag == "Enemy")
         {
+            SceneManager.LoadScene(SceneManager.GetSceneAt(0).name);
         }
     }
 
