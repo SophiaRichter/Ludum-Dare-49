@@ -7,19 +7,19 @@ using UnityEngine.SceneManagement;
 public class PlayerScript : MonoBehaviour
 {
     public float jumpHeight = 5f;
-    float velocity = 0.15f;
+    float velocity = 2f;
     bool onGround = true;
     bool doubleJump = true;
     private float levelStart;
 
     private Transform blob;
 
-    CharacterController charController;
+    Rigidbody2D rigidbody;
 
     // Start is called before the first frame update
     void Start()
     {
-        charController = GetComponent<CharacterController>();
+        rigidbody = GetComponent<Rigidbody2D>();
         levelStart = Time.time;
         blob = transform.Find("blob");
     }
@@ -35,7 +35,7 @@ public class PlayerScript : MonoBehaviour
 
     private void move(float vel, float xDir, float yDir)
     {
-        charController.Move(new Vector2(vel * xDir, vel * yDir));
+        rigidbody.velocity = new Vector2(vel * xDir, vel * yDir);
         
         //let model face walking direction
         if (xDir > 0)
@@ -50,10 +50,14 @@ public class PlayerScript : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        
         if (other.gameObject.tag == "Collider")
         {
             onGround = true;
         }
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+
     }
 }
