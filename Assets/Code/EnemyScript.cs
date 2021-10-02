@@ -34,6 +34,6 @@ public class EnemyScript : MonoBehaviour
 
         }
 
-        //anim.Play("Enemy_Idle");
+        anim.Play("Enemy_Walking");
     }
 }
