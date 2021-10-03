@@ -65,6 +65,7 @@ public class PlayerScript : MonoBehaviour
             {
                 anim.Play("Blob_Vent");
                 transform.position = targetinRadius.transform.position;
+                StartCoroutine(waitForAnimation(0.9f));
                 StartCoroutine(loadNewLevel("Level 1"));
             }
         }
@@ -221,17 +222,18 @@ public class PlayerScript : MonoBehaviour
 
     IEnumerator loadNewLevel(String levelName)
     {
+
         timer = 1;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.8f);
         timer = 100;
-        
+        GameObject.Find("Player").GetComponentInChildren<SpriteRenderer>().gameObject.SetActive(false);
         //save items
         string itemsToSave = "";
         foreach (Item i in items) itemsToSave += (i.name + ",");
         PlayerPrefs.SetString("Items",itemsToSave);
         PlayerPrefs.Save();
-
         GameObject.Find("UI").BroadcastMessage("fadeOut");
+        yield return new WaitForSeconds(2.2f);
         SceneManager.LoadScene(levelName);
     }
 

@@ -208,8 +208,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 90
-  m_Sprite: {fileID: 1356894164406305843, guid: 9a83d6fa4bb81044f8501cabfe31c7cb,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: bcee82594d965da4883710f71276049e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -308,8 +307,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 90
-  m_Sprite: {fileID: 7710294254637788123, guid: ba861b4152ea1964f8cc33dbd34a9c4d,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1239b4b013f9fdc48a42b0964add23e7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -936,8 +934,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 90
-  m_Sprite: {fileID: -745491097736770815, guid: 1ff1b2431e74f70428c7e85eec5039fc,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8d07bab25ef65e343b8b328e420546be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1927,6 +1924,36 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1513003958 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1659948194836173520, guid: 7098ee178ccf7fe4b9eb337a0cc02490,
+    type: 3}
+  m_PrefabInstance: {fileID: 1659948196175164239}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc48cdce7f1db5a4dae48b8c04593a60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1516688826 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1659948194667853449, guid: 7098ee178ccf7fe4b9eb337a0cc02490,
+    type: 3}
+  m_PrefabInstance: {fileID: 1659948196175164239}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1516688828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516688826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6921c58274a2c4c479898c203cb534de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1693273426
 GameObject:
   m_ObjectHideFlags: 0
@@ -2267,6 +2294,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 1659948194692243316, guid: 7098ee178ccf7fe4b9eb337a0cc02490,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 998
+      objectReference: {fileID: 0}
     - target: {fileID: 1659948195679453134, guid: 7098ee178ccf7fe4b9eb337a0cc02490,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2297,7 +2329,7 @@ PrefabInstance:
     - target: {fileID: 1659948195794069882, guid: 7098ee178ccf7fe4b9eb337a0cc02490,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.37
+      value: -17.88
       objectReference: {fileID: 0}
     - target: {fileID: 1659948195794069880, guid: 7098ee178ccf7fe4b9eb337a0cc02490,
         type: 3}
@@ -2353,6 +2385,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Parameters.colorGradient.atime3
       value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659948195794069880, guid: 7098ee178ccf7fe4b9eb337a0cc02490,
+        type: 3}
+      propertyPath: m_Time
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659948194836173551, guid: 7098ee178ccf7fe4b9eb337a0cc02490,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1513003958}
+    - target: {fileID: 1659948194836173551, guid: 7098ee178ccf7fe4b9eb337a0cc02490,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: openOptions
+      objectReference: {fileID: 0}
+    - target: {fileID: 1659948194836173551, guid: 7098ee178ccf7fe4b9eb337a0cc02490,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7098ee178ccf7fe4b9eb337a0cc02490, type: 3}

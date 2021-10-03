@@ -114,6 +114,7 @@ public class EnemyScript : MonoBehaviour
         if (rigi.velocity.y <= 0 && Mathf.Abs(rigi.velocity.y) > Mathf.Abs(rigi.velocity.x)) orientation = Orientation.South;
         if (rigi.velocity.x >= 0 && Mathf.Abs(rigi.velocity.x) > Mathf.Abs(rigi.velocity.y)) orientation = Orientation.East;
         if (rigi.velocity.x < 0 && Mathf.Abs(rigi.velocity.x) > Mathf.Abs(rigi.velocity.y)) orientation = Orientation.West;
+
     }
 
     private void animate()
@@ -131,11 +132,19 @@ public class EnemyScript : MonoBehaviour
         AnimatorClipInfo[] clips = anim.GetCurrentAnimatorClipInfo(0);
         //if (clips.Length > 0 && (clips[0].clip.name.Equals("Enemy_Devour")) && anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f) return;
 
-        //if (rigi.velocity.x == 0 && rigi.velocity.y == 0) anim.Play(transform.name + "_Idle");
-        if (orientation == Orientation.North) anim.Play(transform.name + "_WalkingUp");
-        if (orientation == Orientation.East || orientation == Orientation.West) anim.Play(transform.name + "_Walking");
-        else if (orientation == Orientation.South) anim.Play(transform.name + "_WalkingDown");
 
+        if(rigi.velocity.x == 0 && rigi.velocity.y == 0 )
+        { 
+            if (orientation == Orientation.East || orientation == Orientation.West)  anim.Play(transform.name + "_Idle");
+            if (orientation == Orientation.North) anim.Play(transform.name + "_IdleUp"); 
+            if (orientation == Orientation.South) anim.Play(transform.name + "_IdleDown"); 
+        }
+        else
+        { 
+            if (orientation == Orientation.North) anim.Play(transform.name + "_WalkingUp");
+            if (orientation == Orientation.East || orientation == Orientation.West) anim.Play(transform.name + "_Walking");
+            else if (orientation == Orientation.South) anim.Play(transform.name + "_WalkingDown");
+        }
     }
 
     void OnCollisionEnter2D(Collision2D other)
