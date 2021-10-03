@@ -17,14 +17,13 @@ public class PlayerScript : MonoBehaviour
 
     public ArrayList items = new ArrayList();
     
-    
     private float velocity = 2f;
     private Transform itemAquiredLetter;
     private Transform itemAquiredToolbox;
     private Transform blob;
     private Rigidbody2D rigidbody;
     private Animator anim;
-
+    private ArrayList specialAnimation = new ArrayList{ "Blob_ItemAquired", "Blob_Devour", "Blob_Vent" };
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +46,22 @@ public class PlayerScript : MonoBehaviour
         move(velocity, xDir, yDir);
         animate();
 
+        interact();
+
+    }
+
+    private void interact()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            Collider2D targetinRadius = Physics2D.OverlapCircle(transform.position, 1f);
+
+            if (targetinRadius.tag == "Vent")
+            {
+                anim.Play("Blob_Vent");
+                transform.position = targetinRadius.transform.position;
+            }
+        }
     }
 
     private void setDirections(float xDir, float yDir)
@@ -88,8 +103,8 @@ public class PlayerScript : MonoBehaviour
     {
         //give priority over lesser animations
         AnimatorClipInfo[] clips = anim.GetCurrentAnimatorClipInfo(0);
-        if (clips.Length > 0 && clips[0].clip.name.Equals("Blob_ItemAquired") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f) return;
-        resetEquipment();
+        if (clips.Length > 0 && (specialAnimation.Contains(clips[0].clip.name)) && anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f) return;
+        //resetEquipment();
 
         if (isIdle)
         {
@@ -143,7 +158,9 @@ public class PlayerScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            SceneManager.LoadScene(SceneManager.GetSceneAt(0).name);
+            //SceneManager.LoadScene(SceneManager.GetSceneAt(0).name);
+
+            anim.Play("Blob_Devour");
         }
     }
 
@@ -165,8 +182,13 @@ public class PlayerScript : MonoBehaviour
             }
             StartCoroutine(resetEquipment());
             Destroy(other.gameObject);
-            
         }
+        
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+
     }
 
     IEnumerator resetEquipment()

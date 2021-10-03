@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: 9324013a1ab93924f8e7c4863ba9d1e5
+guid: 43ce720dba885fd41bf4eb62053775a9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2951920449173212877
-    second: manWalkingDown_0
+      213: 2324574963629416731
+    second: manWalkingRight_0
   - first:
-      213: 4719563374867531464
-    second: manWalkingDown_1
+      213: 435950017279232695
+    second: manWalkingRight_1
   - first:
-      213: -2010550426933259520
-    second: manWalkingDown_2
+      213: 8934177025255219280
+    second: manWalkingRight_2
   - first:
-      213: 3587304588390931798
-    second: manWalkingDown_3
+      213: -8703064594882428384
+    second: manWalkingRight_3
   - first:
-      213: 1288419254662853314
-    second: manWalkingDown_4
+      213: 1665606353190756936
+    second: manWalkingRight_4
   - first:
-      213: 9019186206898755603
-    second: manWalkingDown_5
+      213: -8256506747672209046
+    second: manWalkingRight_5
   - first:
-      213: -2148823971659020019
-    second: manWalkingDown_6
+      213: -6227534242361268888
+    second: manWalkingRight_6
   - first:
-      213: -8478102172554360169
-    second: manWalkingDown_7
+      213: -8258454281764827221
+    second: manWalkingRight_7
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -108,7 +108,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: manWalkingDown_0
+      name: manWalkingRight_0
       rect:
         serializedVersion: 2
         x: 0
@@ -122,14 +122,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e8107b74c97b004a84b4d5604c84f05
-      internalID: 2951920449173212877
+      spriteID: 9bbf000c59dd01a449d7ea2184e43678
+      internalID: 2324574963629416731
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: manWalkingDown_1
+      name: manWalkingRight_1
       rect:
         serializedVersion: 2
         x: 128
@@ -143,14 +143,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5960ee391f9daf46b70af1d84d77997
-      internalID: 4719563374867531464
+      spriteID: 7d3e8373379c01c47814333f86a2b3ed
+      internalID: 435950017279232695
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: manWalkingDown_2
+      name: manWalkingRight_2
       rect:
         serializedVersion: 2
         x: 256
@@ -164,14 +164,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8954cba54beadd3429192c33d13420ed
-      internalID: -2010550426933259520
+      spriteID: 54fc37326e8c37d4cac55182bc9b5b07
+      internalID: 8934177025255219280
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: manWalkingDown_3
+      name: manWalkingRight_3
       rect:
         serializedVersion: 2
         x: 0
@@ -185,14 +185,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53859d3f09a29de4f9847d1e41ca243c
-      internalID: 3587304588390931798
+      spriteID: 2a4f4c691c5e9c641bc81c078fa2c872
+      internalID: -8703064594882428384
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: manWalkingDown_4
+      name: manWalkingRight_4
       rect:
         serializedVersion: 2
         x: 128
@@ -206,14 +206,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 931eefabcbbea78439bcd8e410172d20
-      internalID: 1288419254662853314
+      spriteID: cd4801aeb09f7dd46bc63e9567d90159
+      internalID: 1665606353190756936
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: manWalkingDown_5
+      name: manWalkingRight_5
       rect:
         serializedVersion: 2
         x: 256
@@ -227,14 +227,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3dca5bcceb51224b96a3e30d12a5667
-      internalID: 9019186206898755603
+      spriteID: bee03c23470c2b941897c2627fc63063
+      internalID: -8256506747672209046
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: manWalkingDown_6
+      name: manWalkingRight_6
       rect:
         serializedVersion: 2
         x: 0
@@ -248,14 +248,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c30caefdb4d29634a988d6b360f44c42
-      internalID: -2148823971659020019
+      spriteID: a44517efca9b4c94b8424f3c202cb06a
+      internalID: -6227534242361268888
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: manWalkingDown_7
+      name: manWalkingRight_7
       rect:
         serializedVersion: 2
         x: 128
@@ -269,8 +269,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7eb843e489771a428e7788fd115c2f8
-      internalID: -8478102172554360169
+      spriteID: 079e72546645ce64d97463be16cc6285
+      internalID: -8258454281764827221
       vertices: []
       indices: 
       edges: []
@@ -278,7 +278,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 591fbad86ee570248af23c553ead803c
+    spriteID: c88b7744333630b47a05823654fb5033
     internalID: 0
     vertices: []
     indices: 
