@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
-    public int time = 100;
+    public int timer = 100;
+    public Sprite loveLetter;
+    public Sprite toolBox;
 
     bool isIdle = true;
     bool isWalking = false;
@@ -16,36 +18,34 @@ public class PlayerScript : MonoBehaviour
     int lastAnimation = 0;
 
     public ArrayList items = new ArrayList();
-    
-    private float velocity = 2f;
+
+    private float velocity = 4f;
     private Transform itemAquiredLetter;
     private Transform itemAquiredToolbox;
     private Transform blob;
     private Rigidbody2D rigidbody;
     private Animator anim;
-    private ArrayList specialAnimation = new ArrayList{ "Blob_ItemAquired", "Blob_Devour", "Blob_Vent" };
+    private ArrayList specialAnimation = new ArrayList { "Blob_ItemAquired", "Blob_Devour", "Blob_Vent" };
 
-    // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = false;
         rigidbody = GetComponent<Rigidbody2D>();
         blob = transform.Find("Blob");
         itemAquiredLetter = transform.Find("ItemAquiredLetter");
         itemAquiredToolbox = transform.Find("ItemAquiredToolbox");
-        anim = blob.GetComponent<Animator>(); 
+        anim = blob.GetComponent<Animator>();
 
     }
 
-    // Update is called once per frame
     void Update()
     {
-        float xDir = Input.GetAxisRaw("Horizontal") * time /100;
-        float yDir = Input.GetAxisRaw("Vertical") * time /100;
-        
+        float xDir = Input.GetAxisRaw("Horizontal") * timer / 100;
+        float yDir = Input.GetAxisRaw("Vertical") * timer / 100;
+
         setDirections(xDir, yDir);
         move(velocity, xDir, yDir);
         animate();
-
         interact();
 
     }
@@ -60,7 +60,15 @@ public class PlayerScript : MonoBehaviour
             {
                 anim.Play("Blob_Vent");
                 transform.position = targetinRadius.transform.position;
+                StartCoroutine(loadNewLevel("Level 1"));
             }
+        }
+        if (Input.GetKeyDown(KeyCode.AltGr) || Input.GetKeyDown(KeyCode.LeftAlt))
+        {
+            if (Cursor.visible)
+            {
+                Cursor.visible = false;
+            }else Cursor.visible = true;
         }
     }
 
@@ -103,8 +111,11 @@ public class PlayerScript : MonoBehaviour
     {
         //give priority over lesser animations
         AnimatorClipInfo[] clips = anim.GetCurrentAnimatorClipInfo(0);
-        if (clips.Length > 0 && (specialAnimation.Contains(clips[0].clip.name)) && anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f) return;
-        //resetEquipment();
+        
+        if (clips.Length > 0 && specialAnimation.Contains(clips[0].clip.name.ToString()) && anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+        {
+            return;
+        }
 
         if (isIdle)
         {
@@ -136,19 +147,16 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-
-
-
     private void move(float vel, float xDir, float yDir)
     {
-        rigidbody.velocity = new Vector2(vel * xDir,vel * yDir);       
+        rigidbody.velocity = new Vector2(vel * xDir, vel * yDir);
 
         //let model face walking direction
         if (xDir > 0)
         {
             blob.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
         }
-        else if (xDir < 0 )
+        else if (xDir < 0)
         {
             blob.transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
         }
@@ -161,6 +169,7 @@ public class PlayerScript : MonoBehaviour
             //SceneManager.LoadScene(SceneManager.GetSceneAt(0).name);
 
             anim.Play("Blob_Devour");
+            StartCoroutine(waitForAnimation(1.8f));
         }
     }
 
@@ -172,18 +181,17 @@ public class PlayerScript : MonoBehaviour
 
             if (other.gameObject.name.Equals("LoveLetter"))
             {
-                items.Add(new Item("LoveLetter", "Some description"));
-                itemAquiredLetter.gameObject.SetActive(true);
+                items.Add(new Item("LoveLetter", "Some description", loveLetter));
+                itemAquiredLetter.gameObject.SetActive(true); //for victory pose
             }
             else if (other.gameObject.name.Equals("Toolbox"))
             {
-                items.Add(new Item("Toolbox", "A handy toolbox"));
-                itemAquiredToolbox.gameObject.SetActive(true);
+                items.Add(new Item("Toolbox", "A handy toolbox", toolBox));
+                itemAquiredToolbox.gameObject.SetActive(true); //for victory pose
             }
-            StartCoroutine(resetEquipment());
+            StartCoroutine(waitForAnimation(0.9f));
             Destroy(other.gameObject);
         }
-        
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -191,10 +199,38 @@ public class PlayerScript : MonoBehaviour
 
     }
 
-    IEnumerator resetEquipment()
+    IEnumerator waitForAnimation(float time)
     {
-        yield return new WaitForSeconds(0.9f);
+        timer = 1;
+        yield return new WaitForSeconds(time);
+        resetEquipment();
+        timer = 100;
+    }
+
+    void resetEquipment()
+    {
         itemAquiredLetter.gameObject.SetActive(false);
         itemAquiredToolbox.gameObject.SetActive(false);
     }
+
+
+    IEnumerator loadNewLevel(String levelName)
+    {
+        timer = 1;
+        yield return new WaitForSeconds(1f);
+        timer = 100;
+        GameObject.Find("UI").BroadcastMessage("fadeOut");
+        //SceneManager.LoadScene("Level 1");
+    }
+
+    public void resumeGame()
+    {
+        timer = 100;
+    }
+
+    public void pauseGame()
+    {
+        timer = 1;
+    }
+
 }

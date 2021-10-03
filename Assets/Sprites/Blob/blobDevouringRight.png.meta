@@ -32,6 +32,51 @@ TextureImporter:
   - first:
       213: -4471451302674476202
     second: blobDevouringRight_9
+  - first:
+      213: 4054214664907837117
+    second: blobDevouringRight_10
+  - first:
+      213: -5243315972357741946
+    second: blobDevouringRight_11
+  - first:
+      213: 2973007582205430433
+    second: blobDevouringRight_12
+  - first:
+      213: 1178171048647409008
+    second: blobDevouringRight_13
+  - first:
+      213: 8288058743988586234
+    second: blobDevouringRight_14
+  - first:
+      213: -1228966446951401106
+    second: blobDevouringRight_15
+  - first:
+      213: 554934026569963875
+    second: blobDevouringRight_16
+  - first:
+      213: -1947157861372571358
+    second: blobDevouringRight_17
+  - first:
+      213: 1701648420446825921
+    second: blobDevouringRight_18
+  - first:
+      213: 1602561781914372051
+    second: blobDevouringRight_19
+  - first:
+      213: -5384234704027143936
+    second: blobDevouringRight_20
+  - first:
+      213: -3689415019750417885
+    second: blobDevouringRight_21
+  - first:
+      213: 7970193906541776282
+    second: blobDevouringRight_22
+  - first:
+      213: -6492193924806622948
+    second: blobDevouringRight_23
+  - first:
+      213: -6467669597833626706
+    second: blobDevouringRight_24
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -119,7 +164,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 768
-        width: 128
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -128,7 +173,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e73143020a4e76447af3f336042c79ae
+      spriteID: e32c2be39acb8684bae91ec142c44a47
       internalID: 6680561528295390289
       vertices: []
       indices: 
@@ -138,9 +183,9 @@ TextureImporter:
       name: blobDevouringRight_1
       rect:
         serializedVersion: 2
-        x: 128
+        x: 256
         y: 768
-        width: 128
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -149,7 +194,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd8a6715ec308ab47916048f6c61fac1
+      spriteID: 5c9d872bd5913df4aa04915cf8720824
       internalID: 1841542613479070943
       vertices: []
       indices: 
@@ -159,9 +204,9 @@ TextureImporter:
       name: blobDevouringRight_2
       rect:
         serializedVersion: 2
-        x: 256
+        x: 512
         y: 768
-        width: 128
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -170,7 +215,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ed85d0b90725144abb0433aadce7f96
+      spriteID: e842932e5fdd5c14fa71acfe5c8d5a4d
       internalID: 1703015063910995796
       vertices: []
       indices: 
@@ -180,9 +225,9 @@ TextureImporter:
       name: blobDevouringRight_3
       rect:
         serializedVersion: 2
-        x: 384
+        x: 768
         y: 768
-        width: 128
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -191,7 +236,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 575467b8eea9d0d4184d6e95a64cc829
+      spriteID: e6aa4fea303e7f6438aba4b79c0dac30
       internalID: -491773259511156470
       vertices: []
       indices: 
@@ -203,7 +248,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 512
-        width: 128
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -212,7 +257,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 150ddd86a83fe9440a48c5497f5e7b80
+      spriteID: 7ed9824d0b795d34893910ea549b4f91
       internalID: 5294222711318496475
       vertices: []
       indices: 
@@ -222,9 +267,9 @@ TextureImporter:
       name: blobDevouringRight_5
       rect:
         serializedVersion: 2
-        x: 128
+        x: 256
         y: 512
-        width: 128
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -233,7 +278,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53ab553cf2310dd4cb5a24631bbfd45a
+      spriteID: 3eddfb116606f8842ae24f2268da5f8d
       internalID: -7392523068679579172
       vertices: []
       indices: 
@@ -243,9 +288,9 @@ TextureImporter:
       name: blobDevouringRight_6
       rect:
         serializedVersion: 2
-        x: 256
+        x: 512
         y: 512
-        width: 128
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -254,7 +299,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0770ede1f26c0864898aa662fdec9f05
+      spriteID: 2e733b03121d2814aad88f0a80dcb9d3
       internalID: 4566997833339023417
       vertices: []
       indices: 
@@ -264,9 +309,9 @@ TextureImporter:
       name: blobDevouringRight_7
       rect:
         serializedVersion: 2
-        x: 384
+        x: 768
         y: 512
-        width: 128
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -275,7 +320,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fd09c86cb9418f40b404f35eb9b9a76
+      spriteID: 6d694d5bb9250784384729cd27cf8d65
       internalID: -4256893054959565158
       vertices: []
       indices: 
@@ -287,7 +332,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 256
-        width: 128
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -296,7 +341,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8835a3f674a0012479f64f956173f5f2
+      spriteID: 0b89e6f9aa492b64fa0fe207f97d7bc8
       internalID: -2996316668840867037
       vertices: []
       indices: 
@@ -306,9 +351,9 @@ TextureImporter:
       name: blobDevouringRight_9
       rect:
         serializedVersion: 2
-        x: 128
+        x: 256
         y: 256
-        width: 128
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -317,8 +362,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8811800bdf746aa419250e16061b6f7b
+      spriteID: 9569d76deb4449d4caef251936e8f885
       internalID: -4471451302674476202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blobDevouringRight_10
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc8a67dba97bf3f4b9962d540c48992c
+      internalID: 4054214664907837117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blobDevouringRight_11
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c8a75336c966214b817cbed4cf1d832
+      internalID: -5243315972357741946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blobDevouringRight_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e86e2f2a8524f3047bd25205c3680026
+      internalID: 2973007582205430433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blobDevouringRight_13
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc2f638e2afcdcf4e94043caf894cdb3
+      internalID: 1178171048647409008
       vertices: []
       indices: 
       edges: []

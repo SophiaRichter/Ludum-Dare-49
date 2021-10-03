@@ -2,15 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Direction : MonoBehaviour
+public class BtnExitScript : MonoBehaviour
 {
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        //transform.LookAt();
+
+    }
+
+    public void exitGame()
+    {
+        Application.Quit();
     }
 }
