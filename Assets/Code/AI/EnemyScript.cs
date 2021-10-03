@@ -90,7 +90,6 @@ public class EnemyScript : MonoBehaviour
 
         if (timeSinceFound != 0)
             {
-                Debug.Log((DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond) - timeSinceFound);
                 if ((DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond) - timeSinceFound < 5000)
                 {
                     canBeEaten = false;
@@ -132,7 +131,7 @@ public class EnemyScript : MonoBehaviour
         AnimatorClipInfo[] clips = anim.GetCurrentAnimatorClipInfo(0);
         //if (clips.Length > 0 && (clips[0].clip.name.Equals("Enemy_Devour")) && anim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f) return;
 
-        if (rigi.velocity.x == 0 && rigi.velocity.y == 0) anim.Play(transform.name + "_Idle");
+        //if (rigi.velocity.x == 0 && rigi.velocity.y == 0) anim.Play(transform.name + "_Idle");
         if (orientation == Orientation.North) anim.Play(transform.name + "_WalkingUp");
         if (orientation == Orientation.East || orientation == Orientation.West) anim.Play(transform.name + "_Walking");
         else if (orientation == Orientation.South) anim.Play(transform.name + "_WalkingDown");

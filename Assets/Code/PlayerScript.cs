@@ -29,6 +29,11 @@ public class PlayerScript : MonoBehaviour
 
     void Start()
     {
+        if (PlayerPrefs.HasKey("Items"))
+        { 
+            //recover all items
+        }
+
         Cursor.visible = false;
         rigidbody = GetComponent<Rigidbody2D>();
         blob = transform.Find("Blob");
@@ -52,7 +57,7 @@ public class PlayerScript : MonoBehaviour
 
     private void interact()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Collider2D targetinRadius = Physics2D.OverlapCircle(transform.position, 1f);
 
@@ -219,8 +224,15 @@ public class PlayerScript : MonoBehaviour
         timer = 1;
         yield return new WaitForSeconds(1f);
         timer = 100;
+        
+        //save items
+        string itemsToSave = "";
+        foreach (Item i in items) itemsToSave += (i.name + ",");
+        PlayerPrefs.SetString("Items",itemsToSave);
+        PlayerPrefs.Save();
+
         GameObject.Find("UI").BroadcastMessage("fadeOut");
-        //SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene(levelName);
     }
 
     public void resumeGame()

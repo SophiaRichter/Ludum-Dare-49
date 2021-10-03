@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class BtnOptions : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
-        
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -19,6 +16,6 @@ public class BtnOptions : MonoBehaviour
     public void openOptions()
     {
         Cursor.visible = true;
-        GameObject.Find("Options").gameObject.SetActive(true);
+        GameObject.Find("Canvas").transform.Find("Options").gameObject.SetActive(true);
     }
 }

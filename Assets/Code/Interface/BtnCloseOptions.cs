@@ -20,6 +20,7 @@ public class BtnCloseOptions : MonoBehaviour
     public void saveNcloseOptions()
     {
         Cursor.visible = true;
+        PlayerPrefs.Save();
         GameObject.Find("Options").gameObject.SetActive(false);
     }
 
