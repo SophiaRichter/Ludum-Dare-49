@@ -11,20 +11,27 @@ public class PlayerScript : MonoBehaviour
     public Sprite loveLetter;
     public Sprite toolBox;
 
-    bool isIdle = true;
-    bool isWalking = false;
-    bool isWalkingDown = false;
-    bool isWalkingUp = false;
-    int lastAnimation = 0;
+    private bool isIdle = true;
+    private bool isWalking = false;
+    private bool isWalkingDown = false;
+    private bool isWalkingUp = false;
+    private int lastAnimation = 0;
+    public bool isTransformed = false;
+    private bool isManToBlob = false;
+    private long timeOfTransformation = 0;
 
     public ArrayList items = new ArrayList();
 
+    private int durationTransformation = 10000;
     private float velocity = 4f;
     private Transform itemAquiredLetter;
     private Transform itemAquiredToolbox;
     private Transform blob;
+    private Transform rob;
+    private Transform manToBlob;
     private Rigidbody2D rigidbody;
     private Animator anim;
+    private Animator animManToBlob;
     private ArrayList specialAnimation = new ArrayList { "Blob_ItemAquired", "Blob_Devour", "Blob_Vent" };
 
     void Start()
@@ -36,11 +43,16 @@ public class PlayerScript : MonoBehaviour
 
         Cursor.visible = false;
         rigidbody = GetComponent<Rigidbody2D>();
+        
         blob = transform.Find("Blob");
+        rob = transform.Find("RobSprite");
+        manToBlob = transform.Find("ManToBlob");
+        
         itemAquiredLetter = transform.Find("ItemAquiredLetter");
         itemAquiredToolbox = transform.Find("ItemAquiredToolbox");
-        anim = blob.GetComponent<Animator>();
 
+        anim = blob.GetComponent<Animator>();
+        animManToBlob = manToBlob.GetComponent<Animator>();
     }
 
     void Update()
@@ -50,18 +62,21 @@ public class PlayerScript : MonoBehaviour
 
         setDirections(xDir, yDir);
         move(velocity, xDir, yDir);
-        animate();
+        
+        if (isTransformed && !isManToBlob) animateHuman();
+        if (!isTransformed) animateBlob();
+        if (isTransformed && isManToBlob) animateManToBlob();
         interact();
 
     }
 
     private void interact()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetButtonDown("Eat"))
         {
             Collider2D targetinRadius = Physics2D.OverlapCircle(transform.position, 1f);
 
-            if (targetinRadius.tag == "Vent")
+            if (targetinRadius.tag == "Vent" && !isTransformed)
             {
                 anim.Play("Blob_Vent");
                 transform.position = targetinRadius.transform.position;
@@ -76,6 +91,64 @@ public class PlayerScript : MonoBehaviour
                 Cursor.visible = false;
             }else Cursor.visible = true;
         }
+        if (Input.GetButtonDown("Transform"))
+        {
+            if (isTransformed)
+            {
+                transformToBlob();
+            }
+            else
+            {
+                transformToHuman();
+            }
+        }
+
+        if (isTransformed && ((DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond) - timeOfTransformation) > durationTransformation)
+        {
+            transformToBlob();
+        }
+
+    }
+
+    private void transformToManToBlob()
+    {
+        isManToBlob = true;
+        transform.Find("Blob").gameObject.SetActive(false);
+        transform.Find("RobSprite").gameObject.SetActive(false);
+        transform.Find("ManToBlob").gameObject.SetActive(true);
+        animManToBlob = manToBlob.GetComponent<Animator>();
+    }
+
+    private void transformToBlobToMan()
+    {
+        isManToBlob = false;
+        transform.Find("Blob").gameObject.SetActive(false);
+        transform.Find("RobSprite").gameObject.SetActive(true);
+        transform.Find("ManToBlob").gameObject.SetActive(false);
+    }
+
+    private void transformToBlob()
+    {
+        isTransformed = false;
+        isManToBlob = false;
+        gameObject.layer = 8; //target
+        transform.Find("Blob").gameObject.SetActive(true);
+        transform.Find("RobSprite").gameObject.SetActive(false);
+        transform.Find("ManToBlob").gameObject.SetActive(false);
+        anim = blob.GetComponent<Animator>();
+    }
+
+    private void transformToHuman()
+    {
+        isTransformed = true;
+        gameObject.layer = 0;
+        transform.Find("Blob").gameObject.SetActive(false);
+        transform.Find("RobSprite").gameObject.SetActive(true);
+        transform.Find("ManToBlob").gameObject.SetActive(false);
+        anim = rob.GetComponent<Animator>();
+        timeOfTransformation = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
+        StartCoroutine(glitchManToBlob());
+
     }
 
     private void setDirections(float xDir, float yDir)
@@ -113,7 +186,68 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    private void animate()
+
+
+    private void animateManToBlob()
+    {
+        if (isIdle)
+        {
+            if (lastAnimation == 0) animManToBlob.Play("man_Idle");
+            if (lastAnimation == 1) animManToBlob.Play("man_IdleDown");
+            if (lastAnimation == 2) animManToBlob.Play("man_IdleUp");
+            return;
+        }
+        if (isWalking)
+        {
+            animManToBlob.Play("man_Walking");
+            lastAnimation = 0;
+            return;
+        }
+        if (isWalkingDown)
+        {
+            animManToBlob.Play("man_WalkingDown");
+            lastAnimation = 1;
+            return;
+        }
+        if (isWalkingUp)
+        {
+            animManToBlob.Play("man_WalkingUp");
+            lastAnimation = 2;
+            return;
+        }
+
+    }
+
+    private void animateHuman()
+    {
+        if (isIdle)
+        {
+            if (lastAnimation == 0) anim.Play("Rob_Idle");
+            if (lastAnimation == 1) anim.Play("Rob_IdleDown");
+            if (lastAnimation == 2) anim.Play("Rob_IdleUp");
+            return;
+        }
+        if (isWalking)
+        {
+            anim.Play("Rob_Walking");
+            lastAnimation = 0;
+            return;
+        }
+        if (isWalkingDown)
+        {
+            anim.Play("Rob_WalkingDown");
+            lastAnimation = 1;
+            return;
+        }
+        if (isWalkingUp)
+        {
+            anim.Play("Rob_WalkingUp");
+            lastAnimation = 2;
+            return;
+        }
+    }
+
+    private void animateBlob()
     {
         //give priority over lesser animations
         AnimatorClipInfo[] clips = anim.GetCurrentAnimatorClipInfo(0);
@@ -159,18 +293,22 @@ public class PlayerScript : MonoBehaviour
 
         //let model face walking direction
         if (xDir > 0)
-        {
-            blob.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
+        { 
+            if (!isTransformed) blob.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
+            else if(isTransformed && !isManToBlob) rob.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
+            else if(isTransformed && isManToBlob) manToBlob.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
         }
         else if (xDir < 0)
         {
-            blob.transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
+            if (!isTransformed) blob.transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
+            else if (isTransformed && !isManToBlob) rob.transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
+            else if (isTransformed && isManToBlob) manToBlob.transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
         }
     }
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Enemy" && other.gameObject.GetComponent<EnemyScript>().canBeEaten)
+        if (other.gameObject.tag == "Enemy" && other.gameObject.GetComponent<EnemyScript>().canBeEaten && !isTransformed)
         {
             //SceneManager.LoadScene(SceneManager.GetSceneAt(0).name);
 
@@ -235,6 +373,25 @@ public class PlayerScript : MonoBehaviour
         GameObject.Find("UI").BroadcastMessage("fadeOut");
         yield return new WaitForSeconds(2.2f);
         SceneManager.LoadScene(levelName);
+    }
+
+    IEnumerator glitchManToBlob()
+    {
+        yield return new WaitForSeconds((durationTransformation / 1000) / 10 * 5 );
+        transformToManToBlob();
+        yield return new WaitForSeconds(0.3f);
+        transformToBlobToMan();
+        yield return new WaitForSeconds(1.3f);
+        transformToManToBlob();
+        yield return new WaitForSeconds(0.5f);
+        transformToBlobToMan();
+        yield return new WaitForSeconds(1.0f);
+        transformToManToBlob();
+        yield return new WaitForSeconds(0.4f);
+        transformToBlobToMan();
+        yield return new WaitForSeconds((durationTransformation / 1000) / 10 * 1);
+        transformToManToBlob();
+
     }
 
     public void resumeGame()
