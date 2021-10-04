@@ -13,8 +13,9 @@ public class EnemyScript : MonoBehaviour
     private float velocity = 0.5f;
     private Transform enemy;
     public bool canBeEaten = true;
-    private long timeSinceFound = 0;
-    
+    private long timeSinceFound = 9999;
+    private int durationMemory = 4000;
+
     public enum Orientation
     {
         North,
@@ -89,22 +90,22 @@ public class EnemyScript : MonoBehaviour
         }
 
         if (timeSinceFound != 0)
+        {
+            if (((DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond) - timeSinceFound) < durationMemory)
             {
-                if ((DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond) - timeSinceFound < 5000)
-                {
-                    canBeEaten = false;
-                    rigi.velocity = dirToTarget * velocity;
-                }
-                else
-                {
-                    canBeEaten = true;
-                    rigi.velocity = new Vector2(0, 0);
-                    timeSinceFound = 0;
-                }
+                canBeEaten = false;
+                rigi.velocity = dirToTarget * velocity;
             }
+            else
+            {
+                canBeEaten = true;
+                rigi.velocity = new Vector2(0, 0);
+                timeSinceFound = 0;
+            }
+        }
 
-            setOrientation();
-            animate();
+        setOrientation();
+        animate();
         
     }
 
