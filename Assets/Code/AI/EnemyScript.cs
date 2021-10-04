@@ -23,7 +23,7 @@ public class EnemyScript : MonoBehaviour
         West,
         East
     }
-
+    
     public Orientation orientation = Orientation.North;
     private Rigidbody2D rigi;
     private float angleLimitA = 0;

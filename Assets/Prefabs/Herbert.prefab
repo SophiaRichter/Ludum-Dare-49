@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 964667783299464918}
   - component: {fileID: 964667783299464919}
   - component: {fileID: 964667783299464916}
+  - component: {fileID: 2541755256214484990}
   m_Layer: 0
   m_Name: Herbert
   m_TagString: Enemy
@@ -191,3 +192,19 @@ MonoBehaviour:
   fieldOfViewAngle: 120
   canBeEaten: 0
   orientation: 1
+--- !u!58 &2541755256214484990
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964667783299464917}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1

@@ -1,21 +1,16 @@
 Herbert-John1:Well, hello there, John.
 
-Herbert-John2:Let me guess why you're here. 
-You want to apologize for your unfriendly friend?
+Herbert-John2:Let me guess why you're here. You want to apologize for your unfriendly friend?
 
 Herbert-John3:Well, I'm not mad, I'm just really disappointed.
 
-Herbert-John4:You don't need to say anything. 
-Maybe it's too childish to be this angry about someone taking his hat.
+Herbert-John4:You don't need to say anything.  Maybe it's too childish to be this angry about someone taking his hat.
 
 Herbert-John5:Maybe I should be happy that he likes my hat and wanted to try it on?
 
-Herbert-John6:You know, fashion isn't what it has been.
-Where are all the hats and fine clothes?
+Herbert-John6:You know, fashion isn't what it has been. Where are all the hats and fine clothes?
 
-Herbert-John7:I'm sorry boy, I'm just talking and talking.
-Here, let me open this door for you.
-And tell Rob that I'm sorry.
+Herbert-John7:I'm sorry boy, I'm just talking and talking. Here, let me open this door for you. And tell Rob that I'm sorry.
 
 Herbert-John8:Nice that you want to keep this old guy company, but go ahead and do what you must.
 
@@ -27,40 +22,29 @@ Herbert-Rob3:Even if you're standing here for all time, I'm not opening the door
 
 Herbert-Rob4:Not even a little bit, you just don't deserve it!
 
-Herbert-Rob5:So, you just want to stare at me and be silent?
-I can play this game too!
+Herbert-Rob5:So, you just want to stare at me and be silent? I can play this game too!
 
 Herbert-Rob6:... 
 
-Herbert-Soldier1:These inconsidered youngsters!
-You look away for one moment and they make fun of you!
+Herbert-Soldier1:These inconsidered youngsters! You look away for one moment and they make fun of you!
 
-Herbert-Soldier2:And who are you again?
-Judging by the green clothes a soldier, I suppose?
+Herbert-Soldier2:And who are you again? Judging by the green clothes a soldier, I suppose?
 
-Herbert-Soldier3: I don't care if you are mad that you can't pass the door.
-I'm trying to prove a point here!
+Herbert-Soldier3: I don't care if you are mad that you can't pass the door. I'm trying to prove a point here!
 
 Herbert-Soldier4: No matter how long you stand here, I'm not opening this door.
 
-John-Soldier1:O-oh. Hello, mister. 
-I'm just standing here and doing the science.
+John-Soldier1:O-oh. Hello, mister. I'm just standing here and doing the science.
 
 John-Soldier2:Yep, juuuust thinking and sciencing!
 
-John-Soldier3:You're a persistent one, huh? 
-Or maybe more clever than your colleagues.
-Alright, listen. I lost a little something.
-Doesn't matter what it is. I just... lost it.
+John-Soldier3:You're a persistent one, huh? Or maybe more clever than your colleagues. Alright, listen. I lost a little something. Doesn't matter what it is. I just... lost it.
 
-John-Soldier4:Wastepaper, if you know what I'm talking about. 
-If you want to help me, just help me find it.
-I'm happy to open this door for you afterwards.
+John-Soldier4:Wastepaper, if you know what I'm talking about. If you want to help me, just help me find it. I'm happy to open this door for you afterwards.
 
 John-Soldier5:No, that's not it...
 
-John-Soldier6:Oh, you found it! You... didn't happen to read it, did you?
-Ah, nevermind, my friend, you helped me and so I'll help you.
+John-Soldier6:Oh, you found it! You... didn't happen to read it, did you? Ah, nevermind, my friend, you helped me and so I'll help you.
 
 John-Soldier7:Go on, the door is opened now.
 
@@ -76,26 +60,19 @@ Rob-Herbert5:...
 
 Rob-John1:Oh, hey John! How's it going up there?
 
-Rob-John2:Listen, I don't want to bug you about this, but...
-Herbert is mad at me and refuses to open the doors in this part of the lab.
+Rob-John2:Listen, I don't want to bug you about this, but... Herbert is mad at me and refuses to open the doors in this part of the lab.
 
-Rob-John3:All I did was fetching his hat and putting it on my head.
-I didn't know that this was a crime in his eyes!
+Rob-John3:All I did was fetching his hat and putting it on my head. I didn't know that this was a crime in his eyes!
 
-Rob-John4:Maybe he thought I wanted to mock him? 
-Might be...
+Rob-John4:Maybe he thought I wanted to mock him? Might be...
 
 Rob-John5:However, we're not going anywhere if these doors are locked.
 
 Rob-John6:I heard the janitor left his toolbox somewhere, maybe we can find it?
 
-Rob-John7:Oh, you already have it! I knew I could count on you!
-Give me a second, I'm going to open this door. 
-I can't help with the door on the other side though. 
-Herbert is going to kill me if I unlock it with the toolbox.
+Rob-John7:Oh, you already have it! I knew I could count on you! Give me a second, I'm going to open this door. I can't help with the door on the other side though. Herbert is going to kill me if I unlock it with the toolbox.
 
-Rob-John8:Go ahead buddy, the door is open now!
-The beer this evening is on me.
+Rob-John8:Go ahead buddy, the door is open now! The beer this evening is on me.
 
 Rob-Soldier1:Yeah? What do you need?
 
@@ -103,13 +80,9 @@ Rob-Soldier2:We won't get anywhere if you military guys keep bugging us.
 
 Rob-Soldier3:Come on, we have things to do!
 
-Rob-Soldier4:Well, I know it might seem that I'm just standing here and doing nothing, but...
-I need to get into the next room, but my colleague and I had an argument and...
-Let's just say the door is firmly closed.
+Rob-Soldier4:Well, I know it might seem that I'm just standing here and doing nothing, but... I need to get into the next room, but my colleague and I had an argument and... Let's just say the door is firmly closed.
 
-Rob-Soldier5:I mean... if you could use your muscles and open this door...
-No, wait, my boss is going to kill me if I let you kick the door in.
-Or maybe your boss kills us both. Seems more plausible, if you ask me.
+Rob-Soldier5:I mean... if you could use your muscles and open this door... No, wait, my boss is going to kill me if I let you kick the door in. Or maybe your boss kills us both. Seems more plausible, if you ask me.
 
 Rob-Soldier6:What would Doge do?
 
