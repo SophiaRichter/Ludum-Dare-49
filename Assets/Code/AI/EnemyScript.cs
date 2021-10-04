@@ -10,7 +10,7 @@ public class EnemyScript : MonoBehaviour
     public LayerMask target;
     public LayerMask obstacle;
     public float fieldOfViewAngle;
-    private float velocity = 0.5f;
+    private float velocity = 2f;
     private Transform enemy;
     public bool canBeEaten = true;
     private long timeSinceFound = 9999;
@@ -150,11 +150,13 @@ public class EnemyScript : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Player" && canBeEaten)
+        PlayerScript player = other.gameObject.GetComponent<PlayerScript>();
+
+        if (other.gameObject.tag == "Player" && canBeEaten && !player.isTransformed)
         {
             Destroy(gameObject);
         }
-        else if (other.gameObject.tag == "Player")
+        else if (other.gameObject.tag == "Player" && !player.isTransformed)
         {
             Destroy(other.gameObject);
             SceneManager.LoadScene(SceneManager.GetSceneAt(0).name);

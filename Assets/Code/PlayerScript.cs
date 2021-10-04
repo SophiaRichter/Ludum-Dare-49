@@ -108,6 +108,11 @@ public class PlayerScript : MonoBehaviour
             transformToBlob();
         }
 
+        if (Input.GetButtonDown("Interact"))
+        { 
+            //if ()
+        
+        }
     }
 
     private void transformToManToBlob()
@@ -129,6 +134,7 @@ public class PlayerScript : MonoBehaviour
 
     private void transformToBlob()
     {
+        timeOfTransformation = 0;
         isTransformed = false;
         isManToBlob = false;
         gameObject.layer = 8; //target
@@ -147,7 +153,9 @@ public class PlayerScript : MonoBehaviour
         transform.Find("ManToBlob").gameObject.SetActive(false);
         anim = rob.GetComponent<Animator>();
         timeOfTransformation = DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
+        StopAllCoroutines();
         StartCoroutine(glitchManToBlob());
+        
 
     }
 
@@ -310,10 +318,12 @@ public class PlayerScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy" && other.gameObject.GetComponent<EnemyScript>().canBeEaten && !isTransformed)
         {
-            //SceneManager.LoadScene(SceneManager.GetSceneAt(0).name);
-
             anim.Play("Blob_Devour");
             StartCoroutine(waitForAnimation(1.8f));
+        }
+        if (other.gameObject.tag == "Door" && isTransformed)
+        {
+            Destroy(other.gameObject);
         }
     }
 
@@ -378,18 +388,25 @@ public class PlayerScript : MonoBehaviour
     IEnumerator glitchManToBlob()
     {
         yield return new WaitForSeconds((durationTransformation / 1000) / 10 * 5 );
+        if (!isTransformed) yield break;
         transformToManToBlob();
         yield return new WaitForSeconds(0.3f);
+        if (!isTransformed) yield break;
         transformToBlobToMan();
         yield return new WaitForSeconds(1.3f);
+        if (!isTransformed) yield break;
         transformToManToBlob();
         yield return new WaitForSeconds(0.5f);
+        if (!isTransformed) yield break;
         transformToBlobToMan();
         yield return new WaitForSeconds(1.0f);
+        if (!isTransformed) yield break;
         transformToManToBlob();
         yield return new WaitForSeconds(0.4f);
+        if (!isTransformed) yield break;
         transformToBlobToMan();
         yield return new WaitForSeconds((durationTransformation / 1000) / 10 * 1);
+        if (!isTransformed) yield break;
         transformToManToBlob();
 
     }
